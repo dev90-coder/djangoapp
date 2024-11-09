@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student's corner</title>
+    <link rel="stylesheet" href="static/nav.css">
+    <link rel="stylesheet" href="static/common.css">
+    <style>
+
+        .main_panel{
+            height:650px;
+            width:100%;
+            display: flex;
+            margin-top:10px
+          
+        }
+        .panel{
+            height:100%;
+            width:20%;
+            background-color:rgb(11, 138, 91);
+            display:flex;
+            align-items:center;
+            
+            flex-direction: column;
+
+        }
+        .panel a{
+            color:white;
+            font-size:20px;
+            text-decoration: none;
+            margin-top:10px;
+
+        }
+
+        .panel a:hover{
+            color:coral;
+            border-bottom:1px solid rgb(255, 0, 204);
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="time">
+        <p id="times">Time here<p>
+    </div>
+    <h1 style="text-align: center;margin-top:10px">AMRITA PUBLIC SCHOOL</h1>   
+    <div class="logo">
+        <img src="static/log.png">
+        
+       </div>
+       <div class="social">
+        <div class="face">F</div>
+        <div class="goggle">G</div>
+    </div>
+    <div class="nav">
+        <span class="nav_a"><a href="index">Home</a></span>
+        <span class="nav_a"><a href="gallery">Gallery</a></span>
+        <span class="nav_a"><a href="corner">Student Corner</a></span>
+        <span class="nav_a"><a href="suggestions">Suggestions</a></span>
+        <span class="nav_a"><a href="about">About us</a></span>
+        <span class="nav_a"><a href="contact">Contact us</a></span>
+    </div>
+<div class="main_panel">
+<div class="panel">
+    <a href="details" target="frame">Student's details</a>
+   <a href="registration" target="frame">Registartion form</a>
+</div>
+<iframe name="frame" id="frame" src="static/option.html">
+
+</iframe>
+</div>
+<footer>
+
+    <a href="index">Home</a>
+    <a href="gallery">Gallery</a>
+    <a href="corner">Studnet's Corner</a>
+    <a href="suggestions">Suggestions</a>
+    <a href="contact">Contact us</a>
+    <a href="about">About us</a>
+    <p class='ad'>Address: Village Harriya,Basti 272155</p>
+    <p class="ad">Phone Number: +91 989745623, 1800 568 569</p>
+    
+</footer>
+</body>
+<script>
+    const time = document.getElementById("times")
+    setInterval(function(){
+        var d = new Date()
+        let times = d.getDate()
+        console.log(d)
+        time.innerText=d
+    },1000)
+</script>
+</html>

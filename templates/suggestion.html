@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestion</title>
+    <link href="static/nav.css" rel="stylesheet">
+    <link href="static/common.css" rel="stylesheet">
+    <style>
+.form,form{
+    height:fit-content;
+    width:60%;
+    padding:10px 10px;
+    border:2px solid coral;
+    border-radius:10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:20px
+
+}
+form{
+    border:none;
+    padding:0px 0px;
+    width:100%
+}
+.inp{
+    height:30px;
+    width: 90%;
+    border:2px solid coral;
+    outline:none;
+   
+    margin:15px
+}
+label{
+    font-size:20px;
+    font-family:arial;
+
+}
+#sug_label,#desig_label,#class_label,#sug_for,#class,#desig,#s_l,#tex{
+    display:none
+}
+textarea{
+    height:250px;
+    width:100%
+}
+.btn{
+    height:30px;
+    width:80%;
+    background-color: #FD5E53;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    color:white;
+    border:none;
+    border-radius:20px;
+    font-family:arial;
+    margin-left:50px;
+    
+}
+    </style>
+</head>
+<body>
+    
+
+<div class="time">
+    <p id="times">Time here<p>
+</div>
+<h1 style="text-align: center;margin-top:10px">AMRITA PUBLIC SCHOOL</h1>
+<div class="logo">
+    <img src="static/log.png">
+    
+   </div>
+   <div class="social">
+    <div class="face">F</div>
+    <div class="goggle">G</div>
+</div>
+<div class="nav">
+    <span class="nav_a"><a href="index">Home</a></span>
+    <span class="nav_a"><a href="gallery">Gallery</a></span>
+    <span class="nav_a"><a href="corner">Student Corner</a></span>
+    <span class="nav_a"><a href="suggestions">Suggestions</a></span>
+    <span class="nav_a"><a href="about">About us</a></span>
+    <span class="nav_a"><a href="contact">Contact us</a></span>
+</div>
+
+
+<div class="form">
+<form action="suggestions" method="POST">
+    {% csrf_token %}
+<label for="name">Your Name: </label><br>
+<input type="text" class="inp" name="name"><br>
+
+<label for="email">Your Email: </label><br>
+<input type="email" class="inp" name="email" id='em' onblur=appears()><br>
+
+
+
+<label for="desig" id="desig_label">Your Designation: </label><br>
+<select class="inp" name="desig" id="desig" onclick=appears() required></select><br>
+
+<label for="class" id="class_label" required>Your Class: </label><br>
+<select class="inp" name="class" id="class" onclick=appears()>
+    </select><br>
+<label for="sug_for" id="sug_label" required>Suggestion about: </label>
+<select class="inp" name="sug_for" id="sug_for" onclick=appears()></select><br>
+
+
+
+
+
+<label for="s_l" id="s_l">Suggestions: </label>
+<textarea placeholder="Your suggestions here..." class="inp" name="s_l" id="tex" style="height:300px"></textarea>
+<div style="margin-left:auto;margin-right:auto;height:50px;width:100%">
+<button type="submit" class="btn">
+SUBMIT
+</button>
+</div>
+</form>
+
+
+
+</div>
+
+
+
+
+
+
+
+<footer>
+
+    <a href="index">Home</a>
+    <a href="gallery">Gallery</a>
+    <a href="corner">Studnet's Corner</a>
+    <a href="suggestions">Suggestions</a>
+    <a href="contact">Contact us</a>
+    <a href="about">About us</a>
+    <p class='ad'>Address: Village Harriya,Basti 272155</p>
+    <p class="ad">Phone Number: +91 989745623, 1800 568 569</p>
+    
+</footer>
+
+
+    
+</body>
+<Script src="time.js"></Script>
+<script>
+    var sug  = document.querySelector('#sug_for')
+    var desig = document.querySelector('#desig')
+    var cls  = document.querySelector('#class')
+    var email = document.querySelector('#em')
+    var btn = document.querySelector('.btn')
+    var text = document.querySelector('#tex')
+    var s_l = document.querySelector('#s_l')
+    var sug_l  = document.querySelector('#sug_label')
+    var desig_l = document.querySelector('#desig_label')
+    var cls_l = document.querySelector('#class_label')
+
+        var de = ['--select--','student','teacher','staff','parents']
+        for (var i=0;i<de.length;i++){desig.innerHTML+='<option>'+de[i]+'</option>'}
+
+        
+        for (var i=1;i<13;i++){cls.innerHTML+='<option>'+i+'</option>'}
+
+        
+        
+        var s =['Faculty','Principal','Teachers','Facilities']
+        for (var i=0;i<s.length;i++){sug.innerHTML+='<option>'+s[i]+'</option>'}
+    function appears(){
+        if (em.value != ''){
+            desig.style.display='block';
+            desig_l.style.display='block';
+        }
+        if (desig.value != '--select--'){
+            sug.style.display='block';
+            sug_l.style.display='block';
+            text.style.display='block';
+            btn.style.display='flex';
+            s_l.style.display='block'
+        }
+        if (desig.value == 'student'){
+            cls.style.display = 'block'
+            cls_l.style.display = 'block';
+           
+
+        }
+        if (desig.value != 'student'){
+            cls.style.display = 'none'
+            cls_l.style.display = 'none';
+
+        }
+    
+    }
+</script>
+</html>

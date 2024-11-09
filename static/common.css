@@ -1,0 +1,33 @@
+*{
+    margin:0px;
+    padding:0px 0px;
+}
+img{height:100%;width:100%}
+.social{
+height:100px;
+width: 50px;
+position: fixed;
+right:0;
+top:40%;
+z-index: 10000;
+}
+.face,.goggle{
+height:50px;
+width:100%;
+color:white;    
+font-family: arial;
+font-weight: 500;
+display: flex;
+font-size: 20px;
+justify-content: center;
+align-items: center;
+
+}
+
+.face{
+background-color: blue;
+
+}
+.goggle{
+background-color: red;
+}

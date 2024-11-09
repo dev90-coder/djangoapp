@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link href="static/nav.css" rel="stylesheet">
+    <link href="static/common.css" rel="stylesheet">
+    <STYLE>
+        *{
+            margin:0px;
+            padding:0px 0px;
+        }
+        
+        .contact{
+            height:96%;
+            width:30%;
+            border:2px solid coral;
+            border-left:none;
+            
+            
+            padding:10px 10px;
+            
+			
+        }
+		.master_contact{
+		margin-left:auto;
+		margin-right:auto;
+		height:500px;
+		width:95%;
+		display:flex;
+		justify-content:center;
+		
+		
+		margin-top:20px;
+		margin-bottom:20px	
+		}
+        #name,textarea{
+            width:90%;
+            border:1px solid coral;
+            height:25px;
+            outline:none;
+		
+            margin:5px;
+
+        }
+        label{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+       button{
+        height:30px;
+        width:150px;
+        margin-left: 30%;
+        border:2px solid;
+        cursor: pointer;
+       color:white;
+       font-size: 20px;
+       background-color: #FD5E53;
+       }
+    
+	   .contact_img{
+	   height:100%;
+	   width:50%;
+	   border:2px solid coral
+	   }
+       
+	   
+    </STYLE>
+</head>
+<body>
+    
+<div class="time">
+    <p id="times">Time here<p>
+</div>
+<h1 style="text-align: center;margin-top:10px">AMRITA PUBLIC SCHOOL</h1>
+<div class="logo">
+    <img src="static/log.png">
+</div>
+<div class="social">
+    <div class="face">F</div>
+    <div class="goggle">G</div>
+</div>
+<div class="nav">
+    <span class="nav_a"><a href="index">Home</a></span>
+    <span class="nav_a"><a href="gallery">Gallery</a></span>
+    <span class="nav_a"><a href="corner">Student Corner</a></span>
+    <span class="nav_a"><a href="suggestions">Suggestions</a></span>
+    <span class="nav_a"><a href="about">About us</a></span>
+    <span class="nav_a"><a href="contact">Contact us</a></span>
+</div>
+<div class="master_contact">
+<div class="contact_img"><img src="static/contact.jpg"></div>
+<div class="contact">
+
+    <form action="contact" method="POST">
+        {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="mobile">Mobile number:</label><br>
+        <input type="text" id="name" name="mobile" required><br>
+
+        <label for="email">Email-id:</label><br>
+        <input type="email" id="name" name="email" required><br>
+
+        <label for="views">Your Comment:</label><br>
+        <textarea style="height:80px" name="text" placeholder="Your valuable comments..."></textarea>
+        <button type="submit">Submit</button>
+    
+    </form>
+    <p style="color:green">{{ response }}</p>
+</div></div>
+<footer>
+
+    <a href="index">Home</a>
+    <a href="gallery">Gallery</a>
+    <a href="corner">Studnet's Corner</a>
+    <a href="suggestions">Suggestions</a>
+    <a href="contact">Contact us</a>
+    <a href="about">About us</a>
+    <p class='ad'>Address: Village Harriya,Basti 272155</p>
+    <p class="ad">Phone Number: +91 989745623, 1800 568 569</p>
+    
+</footer>
+</body>
+<script src="static/time.js"></script>
+</html>

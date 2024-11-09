@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contact us form</h1>
+    <table border>
+        <tr>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Contact</th>
+        </tr>
+        {% for i in contact %}
+        <tr>
+            <td> {{ i.name }} </td>
+            <td> {{ i.mobile }} </td>
+            <td> {{ i.email }} </td>
+            <td> {{ i.comment }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Suggestion form</h1>
+    <table border>
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Comment</th>
+            <th>Suggestion for</th>
+            <th>Email</th>
+            <th>Class</th>
+          
+            
+        </tr>
+        {% for j in su %}
+        <tr>
+            <td> {{ j.mem }} </td>
+            <td> {{ j.desig }} </td>
+            <td> {{ j.text }} </td>
+            <td> {{ j.sug_f }} </td>
+            <td> {{ j.emails }} </td>
+            <td> {{ j.classes }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

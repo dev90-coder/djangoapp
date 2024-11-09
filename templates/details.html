@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form{
+            height:400px;
+            width:500px;
+            border:2px solid black;
+            display: flex;
+            flex-direction: column;
+            
+            padding:10px 10px;
+            margin-left:auto;
+            margin-right: auto;
+            margin-top:10px
+        }
+        label{
+            font-family:arial;
+            font-size:18px
+        }
+        .ad{
+            height:25px;
+            border:2px solid #99649A;
+            width:98%;
+            margin:5px;
+            outline:none;
+            border-radius: 5px;
+
+        }
+        button{
+            height:25px;
+            width:200px;
+            font-size:18px;
+            color:white;
+            background-color: coral;
+            
+            margin-top:10px;
+            border-radius: 5px;
+            border:2px solid coral;
+            
+        }
+    </style>
+</head>
+<body>
+<div class="form">
+    <form action="details" method="POST">
+{% csrf_token %}
+<label for="ad">Enter your Addmission number:</label><br>
+<input type="text" class="ad" name="ad" required>
+
+<label for="phone">Enter your mobile number:</label><br>
+<input type="text" class="ad" name="phone" required>
+
+<center><button type="submit">Fetch\Get details</button></center>
+    </form>
+</div>
+<center>
+<table border="1" bordercolor="rgb(11, 138, 91);" style="margin-top:10px">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Mother's name</th>
+        <th>Father's name</th>
+        <th>Mobile number</th>
+        <th>D.O.B.</th>
+    </tr>
+    {% for i in data %}
+    <tr align="center">
+        <td><img src='{{ i.image }}' height="100px" width="100px"></td>
+        <td>{{ i.student }}</td>
+        <td>{{ i.father }}</td>
+        <td>{{ i.mother }}</td>
+        <td>{{ i.phone }}</td>
+        <td>{{ i.class }}</td>
+        <td>{{ i.dob }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<p style="text-align: center;color: red;font-size: 18px;">{{ response }}</p>
+</center>
+</body>
+</html>
